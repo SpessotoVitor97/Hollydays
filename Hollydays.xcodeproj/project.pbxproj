@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DB6FEC027BFD3D10028D97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */; };
 		2DB6FEC227BFD3D10028D97E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */; };
-		2DB6FEC427BFD3D10028D97E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC327BFD3D10028D97E /* ViewController.swift */; };
+		2DB6FEC427BFD3D10028D97E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC327BFD3D10028D97E /* ListViewController.swift */; };
 		2DB6FEC727BFD3D10028D97E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC527BFD3D10028D97E /* Main.storyboard */; };
 		2DB6FEC927BFD3D30028D97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC827BFD3D30028D97E /* Assets.xcassets */; };
 		2DB6FECC27BFD3D30028D97E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB6FECA27BFD3D30028D97E /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		2DB6FEBC27BFD3D10028D97E /* Hollydays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hollydays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2DB6FEC327BFD3D10028D97E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DB6FEC327BFD3D10028D97E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2DB6FEC627BFD3D10028D97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DB6FEC827BFD3D30028D97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DB6FECB27BFD3D30028D97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +56,63 @@
 		2DB6FEBE27BFD3D10028D97E /* Hollydays */ = {
 			isa = PBXGroup;
 			children = (
-				2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */,
-				2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */,
-				2DB6FEC327BFD3D10028D97E /* ViewController.swift */,
-				2DB6FEC527BFD3D10028D97E /* Main.storyboard */,
-				2DB6FEC827BFD3D30028D97E /* Assets.xcassets */,
-				2DB6FECA27BFD3D30028D97E /* LaunchScreen.storyboard */,
-				2DB6FECD27BFD3D30028D97E /* Info.plist */,
+				2DB6FED327BFDAD70028D97E /* App */,
+				2DB6FED727BFDB020028D97E /* Features */,
 			);
 			path = Hollydays;
+			sourceTree = "<group>";
+		};
+		2DB6FED327BFDAD70028D97E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FED427BFDADF0028D97E /* Core */,
+				2DB6FED527BFDAEB0028D97E /* Storyboards */,
+				2DB6FED627BFDAF80028D97E /* SupportingFiles */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2DB6FED427BFDADF0028D97E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */,
+				2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2DB6FED527BFDAEB0028D97E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FEC527BFD3D10028D97E /* Main.storyboard */,
+				2DB6FECA27BFD3D30028D97E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2DB6FED627BFDAF80028D97E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FEC827BFD3D30028D97E /* Assets.xcassets */,
+				2DB6FECD27BFD3D30028D97E /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2DB6FED727BFDB020028D97E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FED827BFDB0A0028D97E /* Destinations List */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2DB6FED827BFDB0A0028D97E /* Destinations List */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6FEC327BFD3D10028D97E /* ListViewController.swift */,
+			);
+			path = "Destinations List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DB6FEC427BFD3D10028D97E /* ViewController.swift in Sources */,
+				2DB6FEC427BFD3D10028D97E /* ListViewController.swift in Sources */,
 				2DB6FEC027BFD3D10028D97E /* AppDelegate.swift in Sources */,
 				2DB6FEC227BFD3D10028D97E /* SceneDelegate.swift in Sources */,
 			);
@@ -291,7 +339,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69KP7AWB28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hollydays/Info.plist;
+				INFOPLIST_FILE = Hollydays/App/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -319,7 +367,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69KP7AWB28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Hollydays/Info.plist;
+				INFOPLIST_FILE = Hollydays/App/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
