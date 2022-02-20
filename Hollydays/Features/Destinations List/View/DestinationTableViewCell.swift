@@ -15,18 +15,31 @@ class DestinationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configureLayout()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-    func configure() {
-        contentView.clipsToBounds = false
-        contentView.layer.cornerRadius = 15
-//        contentView.backgroundColor = .systemBackground
+    override class func description() -> String {
+        "DestinationCell"
+    }
+    
+    private func configureLayout() {
+        destinationImage.layer.cornerRadius = 15
+        destinationImage.contentMode = .scaleToFill
+        
+        destinationName.textColor = .systemBackground
+        destinationName.font = .boldSystemFont(ofSize: 21)
+        
+        destinationPark.textColor = .systemBackground
+        destinationPark.font = .boldSystemFont(ofSize: 18)
+    }
+    
+    func setup(for destination: DestinationModel) {
+        destinationImage.image = UIImage(named: destination.imageName)
+        destinationName.text = destination.name
+        destinationPark.text = destination.park
     }
 }
