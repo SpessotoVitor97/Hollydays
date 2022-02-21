@@ -28,7 +28,7 @@ class DestinationTableViewCell: UITableViewCell {
     
     private func configureLayout() {
         destinationImage.layer.cornerRadius = 15
-        destinationImage.contentMode = .scaleToFill
+        destinationImage.contentMode = .scaleAspectFill
         
         destinationName.textColor = .systemBackground
         destinationName.font = .boldSystemFont(ofSize: 21)
