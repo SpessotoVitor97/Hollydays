@@ -20,14 +20,3 @@ class TableViewAnimator {
         animation(cell, indexPath, tableView)
     }
 }
-
-enum TableAnimationFactory {
-    static func makeMoveUpBounceAnimation(rowHeight: CGFloat, duration: TimeInterval, delayFactor: Double) -> TableCellAnimation {
-        return { cell, indexPath, tableView in
-            cell.transform = CGAffineTransform(translationX: 0, y: rowHeight)
-            UIView.animate(withDuration: duration, delay: delayFactor * Double(indexPath.row), usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: [.curveEaseInOut], animations: {
-                cell.transform = CGAffineTransform(translationX: 0, y: 0)
-            })
-        }
-    }
-}

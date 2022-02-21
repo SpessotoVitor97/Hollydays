@@ -49,7 +49,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let animation: TableCellAnimation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: cell.frame.height, duration: 0.85, delayFactor: 0.03)
+        let animation: TableCellAnimation = AnimationFactory.DestinationList.makeMoveUpBounceAnimation(rowHeight: cell.frame.height, duration: 0.85, delayFactor: 0.03)
         let animator = TableViewAnimator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
     }

@@ -35,29 +35,18 @@ class DestinationDetailsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        translateDetailsViewOut()
+        AnimationFactory.DestinationDetails.detailsView.translateOut(detailsView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        animate()
-    }
-    
-    func animate() {
-        UIView.animate(withDuration: 1.0, delay: 0.3, options: .curveEaseOut, animations: {
-            var detailsFrame = self.detailsView.frame
-            detailsFrame.origin.y -= self.detailsView.frame.height
-          
-            self.detailsView.frame = detailsFrame
-        }, completion: nil)
-    }
-    
-    func translateDetailsViewOut() {
-        detailsView.transform = CGAffineTransform(translationX: 0, y: detailsView.frame.height)
+        animateViews()
     }
     
     func configure() {
         setupScrollView()
         setupDestination()
+        
+        navigationController?.navigationBar.topItem?.backButtonTitle = "Back"
     }
     
     func setupScrollView() {
@@ -97,6 +86,21 @@ class DestinationDetailsViewController: UIViewController {
         destinationDescription.textAlignment = .justified
         destinationDescription.numberOfLines = .min
         destinationDescription.text = destination.description
+    }
+    
+    func animateViews() {
+        animateImageView()
+        animateDetailsView()
+    }
+    
+    func animateImageView() {
+        return
+    }
+    
+    func animateDetailsView() {
+        let animation: DestinationDetailsAnimation = AnimationFactory.DestinationDetails.detailsView.makeMoveUpAnimation(duration: 0.83, delayFactor: 0.03)
+        let animator = DestinationDetails(animation: animation)
+        animator.animate(view: detailsView)
     }
 }
 
