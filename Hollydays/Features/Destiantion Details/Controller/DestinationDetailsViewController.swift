@@ -34,6 +34,27 @@ class DestinationDetailsViewController: UIViewController {
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        translateDetailsViewOut()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animate()
+    }
+    
+    func animate() {
+        UIView.animate(withDuration: 1.0, delay: 0.3, options: .curveEaseOut, animations: {
+            var detailsFrame = self.detailsView.frame
+            detailsFrame.origin.y -= self.detailsView.frame.height
+          
+            self.detailsView.frame = detailsFrame
+        }, completion: nil)
+    }
+    
+    func translateDetailsViewOut() {
+        detailsView.transform = CGAffineTransform(translationX: 0, y: detailsView.frame.height)
+    }
+    
     func configure() {
         setupScrollView()
         setupDestination()
