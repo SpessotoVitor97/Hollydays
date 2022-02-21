@@ -19,6 +19,11 @@ class ListViewController: UIViewController {
         viewModel.getDestinations()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        tableView.cellForRow(at: indexPath)?.isSelected = false
+    }
+    
     func setupTableView() {
         tableView.register(UINib(nibName: String(describing: DestinationTableViewCell.self), bundle: nil), forCellReuseIdentifier: DestinationTableViewCell.description())
         tableView.delegate = self
@@ -42,7 +47,11 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected \(indexPath.item)")
+        let selectedDestination = viewModel.destinations![indexPath.item]
+        let destinationViewModel = DestinationDetailsViewModel(destination: selectedDestination)
+        let detailsViewController = DestinationDetailsViewController(viewModel: destinationViewModel)
+        
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
