@@ -7,4 +7,4 @@ App to show destinations for trips with your family.
 
 # Important
 
-All images taken from ![Apple swiftUI tutorial](https://developer.apple.com/tutorials/swiftui).
+All images taken from [Apple swiftUI tutorial](https://developer.apple.com/tutorials/swiftui).
