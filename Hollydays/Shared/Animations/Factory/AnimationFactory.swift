@@ -19,9 +19,42 @@ enum AnimationFactory {
         }
     }
     enum DestinationDetails {
-        enum ImageView {
-            static func makeCircularAnimation(duration: TimeInterval, delayFactor: Double) {
-                return
+        enum ViewControllerTransition {
+            static func animatedTransition(_ transitionContext: UIViewControllerContextTransitioning, _ currentDestinationCell: DestinationTableViewCell, _ destinationImage: UIImageView, _ toViewController: DestinationDetailsViewController, _ detailsImageView: UIImageView, timeInterval: TimeInterval) {
+                
+                let containerView = transitionContext.containerView
+                let snapshotContentView = UIView()
+                snapshotContentView.backgroundColor = .clear
+                snapshotContentView.frame = containerView.convert(currentDestinationCell.contentView.frame, from: currentDestinationCell)
+                snapshotContentView.layer.cornerRadius = currentDestinationCell.contentView.layer.cornerRadius
+                
+                let destinationDetailsImageView = UIImageView()
+                destinationDetailsImageView.clipsToBounds = true
+                destinationDetailsImageView.contentMode = destinationImage.contentMode
+                destinationDetailsImageView.image = destinationImage.image
+                destinationDetailsImageView.layer.cornerRadius = destinationImage.layer.cornerRadius
+                destinationDetailsImageView.frame = containerView.convert(destinationImage.frame, from: currentDestinationCell)
+                
+                containerView.addSubview(toViewController.view)
+                containerView.addSubview(snapshotContentView)
+                containerView.addSubview(destinationDetailsImageView)
+                
+                toViewController.view.isHidden = true
+                
+                let animator = UIViewPropertyAnimator(duration: timeInterval, curve: .easeInOut) {
+                    snapshotContentView.frame = containerView.convert(toViewController.view.frame, from: toViewController.view)
+                    destinationDetailsImageView.frame = containerView.convert(detailsImageView.frame, from: detailsImageView)
+                    destinationDetailsImageView.layer.cornerRadius = 0
+                }
+                
+                animator.addCompletion { position in
+                    toViewController.view.isHidden = false
+                    destinationDetailsImageView.removeFromSuperview()
+                    snapshotContentView.removeFromSuperview()
+                    transitionContext.completeTransition(position == .end)
+                }
+                
+                animator.startAnimation()
             }
         }
         enum detailsView {

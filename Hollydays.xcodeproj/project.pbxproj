@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D12793D27C42A7100B8C70F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D12793C27C42A7100B8C70F /* TransitionManager.swift */; };
 		2D62F57527C2D7FE0064D28F /* DestinationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F57327C2D7FE0064D28F /* DestinationDetailsViewController.swift */; };
 		2D62F57627C2D7FE0064D28F /* DestinationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D62F57427C2D7FE0064D28F /* DestinationDetailsViewController.xib */; };
 		2D62F57A27C2DFBA0064D28F /* DestinationDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F57927C2DFBA0064D28F /* DestinationDetailsViewModel.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D12793C27C42A7100B8C70F /* TransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		2D62F57327C2D7FE0064D28F /* DestinationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsViewController.swift; sourceTree = "<group>"; };
 		2D62F57427C2D7FE0064D28F /* DestinationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationDetailsViewController.xib; sourceTree = "<group>"; };
 		2D62F57927C2DFBA0064D28F /* DestinationDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		2D62F57D27C3C8070064D28F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2D12793C27C42A7100B8C70F /* TransitionManager.swift */,
 				2D62F57E27C3C8120064D28F /* Animations */,
 			);
 			path = Shared;
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D12793D27C42A7100B8C70F /* TransitionManager.swift in Sources */,
 				2D62F57A27C2DFBA0064D28F /* DestinationDetailsViewModel.swift in Sources */,
 				2DB6FEE927C2B63D0028D97E /* DestinationsModel.swift in Sources */,
 				2DB6FEC027BFD3D10028D97E /* AppDelegate.swift in Sources */,

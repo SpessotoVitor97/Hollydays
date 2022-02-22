@@ -17,6 +17,7 @@ class DestinationDetailsViewController: UIViewController {
     @IBOutlet weak var destinationState: UILabel!
     @IBOutlet weak var aboutDestination: UILabel!
     @IBOutlet weak var destinationDescription: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     let viewModel: DestinationDetailsViewModel
     
@@ -39,14 +40,18 @@ class DestinationDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        animateViews()
+        animateDetailsView()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
     func configure() {
         setupScrollView()
         setupDestination()
-        
-        navigationController?.navigationBar.topItem?.backButtonTitle = "Back"
+        setupNavigationController()
+        setupBackButton()
     }
     
     func setupScrollView() {
@@ -88,13 +93,14 @@ class DestinationDetailsViewController: UIViewController {
         destinationDescription.text = destination.description
     }
     
-    func animateViews() {
-        animateImageView()
-        animateDetailsView()
+    func setupNavigationController() {
+        navigationController?.navigationBar.isHidden = true
     }
     
-    func animateImageView() {
-        return
+    func setupBackButton() {
+        let backImage = UIImage(named: "CloseButton")
+        backButton.setImage(backImage, for: [])
+        backButton.setTitle("", for: [])
     }
     
     func animateDetailsView() {

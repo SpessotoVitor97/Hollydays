@@ -12,10 +12,14 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = DestinationsListViewModel()
+    let transitionManager = TransitionManager(duration: 0.5)
+    
+    var currentDestinationCell: DestinationTableViewCell?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Hollidays destinations"
+        self.navigationController?.delegate = transitionManager
         
         setupTableView()
         viewModel.getDestinations()
@@ -55,17 +59,15 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.isSelected = false
+        let selectedCell = tableView.cellForRow(at: indexPath) as! DestinationTableViewCell
+        selectedCell.isSelected = false
+        
+        currentDestinationCell = selectedCell
         
         let selectedDestination = viewModel.destinations![indexPath.item]
         let destinationViewModel = DestinationDetailsViewModel(destination: selectedDestination)
         let detailsViewController = DestinationDetailsViewController(viewModel: destinationViewModel)
         
-        self.navigationController?.modalPresentationStyle = .popover
-        self.navigationController?.show(detailsViewController, sender: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        false
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
