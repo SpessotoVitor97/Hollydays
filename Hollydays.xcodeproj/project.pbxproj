@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D12793D27C42A7100B8C70F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D12793C27C42A7100B8C70F /* TransitionManager.swift */; };
 		2D62F57527C2D7FE0064D28F /* DestinationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F57327C2D7FE0064D28F /* DestinationDetailsViewController.swift */; };
 		2D62F57627C2D7FE0064D28F /* DestinationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D62F57427C2D7FE0064D28F /* DestinationDetailsViewController.xib */; };
 		2D62F57A27C2DFBA0064D28F /* DestinationDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F57927C2DFBA0064D28F /* DestinationDetailsViewModel.swift */; };
+		2D62F58227C3C88D0064D28F /* TableViewAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F58127C3C88D0064D28F /* TableViewAnimations.swift */; };
+		2D62F58627C40ACC0064D28F /* DetailsAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F58527C40ACC0064D28F /* DetailsAnimations.swift */; };
+		2D62F58927C40C880064D28F /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D62F58827C40C880064D28F /* AnimationFactory.swift */; };
 		2DB6FEC027BFD3D10028D97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */; };
 		2DB6FEC227BFD3D10028D97E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */; };
 		2DB6FEC727BFD3D10028D97E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB6FEC527BFD3D10028D97E /* Main.storyboard */; };
@@ -24,9 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D12793C27C42A7100B8C70F /* TransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		2D62F57327C2D7FE0064D28F /* DestinationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsViewController.swift; sourceTree = "<group>"; };
 		2D62F57427C2D7FE0064D28F /* DestinationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationDetailsViewController.xib; sourceTree = "<group>"; };
 		2D62F57927C2DFBA0064D28F /* DestinationDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDetailsViewModel.swift; sourceTree = "<group>"; };
+		2D62F58127C3C88D0064D28F /* TableViewAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAnimations.swift; sourceTree = "<group>"; };
+		2D62F58527C40ACC0064D28F /* DetailsAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAnimations.swift; sourceTree = "<group>"; };
+		2D62F58827C40C880064D28F /* AnimationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
 		2DB6FEBC27BFD3D10028D97E /* Hollydays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hollydays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DB6FEBF27BFD3D10028D97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DB6FEC127BFD3D10028D97E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,49 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2D62F57D27C3C8070064D28F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2D12793C27C42A7100B8C70F /* TransitionManager.swift */,
+				2D62F57E27C3C8120064D28F /* Animations */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2D62F57E27C3C8120064D28F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				2D62F58727C40C7B0064D28F /* Factory */,
+				2D62F58327C3E4400064D28F /* Destinations List */,
+				2D62F58427C40AB20064D28F /* Destination Details */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		2D62F58327C3E4400064D28F /* Destinations List */ = {
+			isa = PBXGroup;
+			children = (
+				2D62F58127C3C88D0064D28F /* TableViewAnimations.swift */,
+			);
+			path = "Destinations List";
+			sourceTree = "<group>";
+		};
+		2D62F58427C40AB20064D28F /* Destination Details */ = {
+			isa = PBXGroup;
+			children = (
+				2D62F58527C40ACC0064D28F /* DetailsAnimations.swift */,
+			);
+			path = "Destination Details";
+			sourceTree = "<group>";
+		};
+		2D62F58727C40C7B0064D28F /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2D62F58827C40C880064D28F /* AnimationFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		2DB6FEB327BFD3D10028D97E = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +149,7 @@
 			children = (
 				2DB6FED327BFDAD70028D97E /* App */,
 				2DB6FED727BFDB020028D97E /* Features */,
+				2D62F57D27C3C8070064D28F /* Shared */,
 			);
 			path = Hollydays;
 			sourceTree = "<group>";
@@ -277,14 +329,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D12793D27C42A7100B8C70F /* TransitionManager.swift in Sources */,
 				2D62F57A27C2DFBA0064D28F /* DestinationDetailsViewModel.swift in Sources */,
 				2DB6FEE927C2B63D0028D97E /* DestinationsModel.swift in Sources */,
 				2DB6FEC027BFD3D10028D97E /* AppDelegate.swift in Sources */,
 				2DB6FEE627C2B5E50028D97E /* DestinationsListViewModel.swift in Sources */,
 				2DB6FEC227BFD3D10028D97E /* SceneDelegate.swift in Sources */,
 				2D62F57527C2D7FE0064D28F /* DestinationDetailsViewController.swift in Sources */,
+				2D62F58927C40C880064D28F /* AnimationFactory.swift in Sources */,
 				2DB6FEE327C2B3080028D97E /* DestinationTableViewCell.swift in Sources */,
+				2D62F58227C3C88D0064D28F /* TableViewAnimations.swift in Sources */,
 				2DB6FEEE27C2C1140028D97E /* ListViewController.swift in Sources */,
+				2D62F58627C40ACC0064D28F /* DetailsAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.VitorSpessoto.Hollydays;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -479,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.VitorSpessoto.Hollydays;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

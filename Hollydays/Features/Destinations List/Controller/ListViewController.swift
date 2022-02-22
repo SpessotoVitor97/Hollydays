@@ -12,9 +12,15 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = DestinationsListViewModel()
+    let transitionManager = TransitionManager(duration: 0.5)
+    
+    var currentDestinationCell: DestinationTableViewCell?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Hollidays destinations"
+        self.navigationController?.delegate = transitionManager
+        
         setupTableView()
         viewModel.getDestinations()
     }
@@ -46,15 +52,22 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animation: TableCellAnimation = AnimationFactory.DestinationList.makeMoveUpBounceAnimation(rowHeight: cell.frame.height, duration: 0.85, delayFactor: 0.03)
+        let animator = TableViewAnimator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath) as! DestinationTableViewCell
+        selectedCell.isSelected = false
+        
+        currentDestinationCell = selectedCell
+        
         let selectedDestination = viewModel.destinations![indexPath.item]
         let destinationViewModel = DestinationDetailsViewModel(destination: selectedDestination)
         let detailsViewController = DestinationDetailsViewController(viewModel: destinationViewModel)
         
         self.navigationController?.pushViewController(detailsViewController, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        false
     }
 }
